@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textView_0"
+        android:layout_width="match_parent"
+        android:layout_height="24dp"
+        android:layout_marginTop="24dp"
+        android:background="@color/save"
+        android:gravity="center"
+        android:text="@string/transmission"
+        android:textColor="@android:color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView_1"
+        android:layout_width="match_parent"
+        android:layout_height="24dp"
+        android:gravity="center_vertical"
+        android:paddingStart="12dp"
+        android:paddingLeft="12dp"
+        android:paddingEnd="12dp"
+        android:paddingRight="12dp"
+        android:text="@string/message_2"
+        android:textColor="@android:color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_0" />
+
+    <TextView
+        android:id="@+id/textView_2"
+        android:layout_width="match_parent"
+        android:layout_height="24dp"
+        android:gravity="center_vertical"
+        android:paddingStart="12dp"
+        android:paddingLeft="12dp"
+        android:paddingEnd="12dp"
+        android:paddingRight="12dp"
+        android:text="@string/message_3"
+        android:textColor="@android:color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_1" />
+
+    <TextView
+        android:id="@+id/textView_3"
+        android:layout_width="match_parent"
+        android:layout_height="24dp"
+        android:gravity="center_vertical"
+        android:paddingStart="12dp"
+        android:paddingLeft="12dp"
+        android:paddingEnd="12dp"
+        android:paddingRight="12dp"
+        android:text="@string/message_4"
+        android:textColor="@android:color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_2" />
+
+    <TextView
+        android:id="@+id/textView_4"
+        android:layout_width="match_parent"
+        android:layout_height="24dp"
+        android:gravity="center_vertical"
+        android:paddingStart="12dp"
+        android:paddingLeft="12dp"
+        android:paddingEnd="12dp"
+        android:paddingRight="12dp"
+        android:text="@string/message_5"
+        android:textColor="@android:color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_3" />
+
+    <TextView
+        android:id="@+id/textView_5"
+        android:layout_width="match_parent"
+        android:layout_height="24dp"
+        android:gravity="center_vertical"
+        android:paddingStart="12dp"
+        android:paddingLeft="12dp"
+        android:paddingEnd="12dp"
+        android:paddingRight="12dp"
+        android:text="@string/message_8"
+        android:textColor="@android:color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_4" />
+</androidx.constraintlayout.widget.ConstraintLayout>

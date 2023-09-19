@@ -1,0 +1,587 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".CalcActivity">
+
+    <ProgressBar
+        android:id="@+id/progressBar_save"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="192dp"
+        android:layout_height="192dp"
+        android:visibility="gone"
+        android:layout_centerInParent="true" />
+
+    <ScrollView
+        android:id="@+id/scrollView_calc"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/button_finish">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!--  Определение диаметра меньшего шкива  -->
+
+            <TextView
+                android:id="@+id/textView_searching_D1"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@color/save"
+                android:gravity="center"
+                android:text="@string/searching_D1"
+                android:textColor="@android:color/white" />
+
+            <!--  Определение диаметра меньшего шкива в зависимости от метода нахождения  -->
+
+            <Spinner
+                android:id="@+id/spinner_D1_method_choose"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"
+                android:entries="@array/methods" />
+
+            <!--  Определение диаметра меньшего шкива по формуле М. А. Саверина  -->
+
+            <RelativeLayout
+                android:id="@+id/relativeLayout_method_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone">
+
+                <!--  k1 - text  -->
+
+                <TextView
+                    android:id="@+id/seekBar_k1_text"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:gravity="center"
+                    android:text="@string/k1" />
+
+                <!--  k1 - choose  -->
+
+                <SeekBar
+                    android:id="@+id/seekBar_k1_choose"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_toStartOf="@id/seekBar_k1_value"
+                    android:layout_toLeftOf="@id/seekBar_k1_value"
+                    android:layout_toEndOf="@id/seekBar_k1_text"
+                    android:layout_toRightOf="@id/seekBar_k1_text"
+                    android:max="20"
+                    android:progress="10" />
+
+                <!--  k1 - value  -->
+
+                <TextView
+                    android:id="@+id/seekBar_k1_value"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center" />
+
+                <!--  N  -->
+
+                <EditText
+                    android:id="@+id/editText_N"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_below="@id/seekBar_k1_choose"
+                    android:autofillHints="no"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:hint="@string/N_hint"
+                    android:inputType="numberDecimal" />
+
+                <!--  n_1  -->
+
+                <EditText
+                    android:id="@+id/editText_n1_method_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_below="@id/editText_N"
+                    android:autofillHints="no"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:hint="@string/n1_hint"
+                    android:inputType="numberDecimal" />
+            </RelativeLayout>
+
+            <!--  Определение диаметра меньшего шкива из ориентировочной скорости ремня  -->
+
+            <RelativeLayout
+                android:id="@+id/relativeLayout_method_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:id="@+id/linearly_material_choose_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
+
+                    <!--  Тканевый прорезиненный ремень  -->
+
+                    <Button
+                        android:id="@+id/button_material_rubber_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_weight="0.5"
+                        android:onClick="onClick"
+                        android:text="@string/material_1" />
+
+                    <!--  Синтетический капроновый ремень  -->
+
+                    <Button
+                        android:id="@+id/button_material_synthetics_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_weight="0.5"
+                        android:onClick="onClick"
+                        android:text="@string/material_2" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearly_synthetics_type_choose"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/linearly_material_choose_1"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
+
+                    <!--  Тип I  -->
+
+                    <Button
+                        android:id="@+id/button_type_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_weight="0.5"
+                        android:onClick="onClick"
+                        android:text="@string/type_1" />
+
+                    <!--  Тип II  -->
+
+                    <Button
+                        android:id="@+id/button_type_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_weight="0.5"
+                        android:onClick="onClick"
+                        android:text="@string/type_2" />
+                </LinearLayout>
+
+                <!--  n_1  -->
+
+                <EditText
+                    android:id="@+id/editText_n1_method_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_below="@id/linearly_synthetics_type_choose"
+                    android:autofillHints="no"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:hint="@string/n1_hint"
+                    android:inputType="numberDecimal" />
+            </RelativeLayout>
+
+            <!--  Определение диаметра меньшего шкива на основании конструктивных соображений  -->
+
+            <EditText
+                android:id="@+id/editText_D1"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:autofillHints="no"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="@string/D1_hint"
+                android:inputType="number"
+                android:visibility="gone" />
+
+            <!--  Определение диаметра меньшего шкива в зависимости от материала ремня  -->
+
+            <RelativeLayout
+                android:id="@+id/relativeLayout_method_4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone">
+
+                <!--  Определение материала ремня  -->
+
+                <LinearLayout
+                    android:id="@+id/linearly_material_choose_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
+
+                    <!--  Тканевый прорезиненный ремень  -->
+
+                    <Button
+                        android:id="@+id/button_material_rubber_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_weight="0.5"
+                        android:onClick="onClick"
+                        android:text="@string/material_1" />
+
+                    <!--  Синтетический капроновый ремень  -->
+
+                    <Button
+                        android:id="@+id/button_material_synthetics_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_weight="0.5"
+                        android:onClick="onClick"
+                        android:text="@string/material_2" />
+                </LinearLayout>
+
+                <!-- Таблица для синтетических ремней  -->
+
+                <RelativeLayout
+                    android:id="@+id/relativeLayout_method_4_synthetic"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/linearly_material_choose_2">
+
+                    <TextView
+                        android:id="@+id/textView_ro_table"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:gravity="center"
+                        android:text="@string/ro" />
+
+                    <HorizontalScrollView
+                        android:id="@+id/horizontalScrollView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@id/textView_ro_table"
+                        android:layout_toRightOf="@id/textView_ro_table">
+
+                        <LinearLayout
+                            android:id="@+id/linearly_ro_choose"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal" />
+                    </HorizontalScrollView>
+                </RelativeLayout>
+
+                <!--  Таблица для прорезиненных ремней  -->
+
+                <RelativeLayout
+                    android:id="@+id/relativeLayout_method_4_rubber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/linearly_material_choose_2">
+
+                    <LinearLayout
+                        android:id="@+id/linearly_chooses_rubber"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <!--  Выбор модели ремня  -->
+
+                        <LinearLayout
+                            android:id="@+id/linearly_model_choose"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <!--  Б-800, Б-820  -->
+
+                            <Button
+                                android:id="@+id/button_model_rubber_1"
+                                android:layout_width="match_parent"
+                                android:layout_height="48dp"
+                                android:layout_weight="0.5"
+                                android:onClick="onClick"
+                                android:text="@string/model_1" />
+
+                            <!--  БНКЛ-65, БНКЛ-65-2  -->
+
+                            <Button
+                                android:id="@+id/button_model_rubber_2"
+                                android:layout_width="match_parent"
+                                android:layout_height="48dp"
+                                android:layout_weight="0.5"
+                                android:onClick="onClick"
+                                android:text="@string/model_2" />
+                        </LinearLayout>
+
+                        <!--  Выбор с прослойками/без  -->
+
+                        <LinearLayout
+                            android:id="@+id/linearly_layers_choose"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <!--  С прослойками  -->
+
+                            <Button
+                                android:id="@+id/button_layers_rubber_1"
+                                android:layout_width="match_parent"
+                                android:layout_height="48dp"
+                                android:layout_weight="0.5"
+                                android:onClick="onClick"
+                                android:text="@string/layers_1" />
+
+                            <!--  Без прослоек  -->
+
+                            <Button
+                                android:id="@+id/button_layers_rubber_2"
+                                android:layout_width="match_parent"
+                                android:layout_height="48dp"
+                                android:layout_weight="0.5"
+                                android:onClick="onClick"
+                                android:text="@string/layers_2" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <!--  Выбор числа прослоек  -->
+
+                    <TextView
+                        android:id="@+id/seekBar_g_text"
+                        android:layout_width="80dp"
+                        android:layout_height="48dp"
+                        android:layout_below="@id/linearly_chooses_rubber"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:gravity="start|center_vertical"
+                        android:text="@string/g_text" />
+
+                    <!--  g - choose  -->
+
+                    <SeekBar
+                        android:id="@+id/seekBar_g_param_choose"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_below="@id/linearly_chooses_rubber"
+                        android:layout_toStartOf="@id/seekBar_g_value"
+                        android:layout_toLeftOf="@id/seekBar_g_value"
+                        android:layout_toEndOf="@id/seekBar_g_text"
+                        android:layout_toRightOf="@id/seekBar_g_text"
+                        android:max="3"
+                        android:progress="2" />
+
+                    <!--  g - value  -->
+
+                    <TextView
+                        android:id="@+id/seekBar_g_value"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_below="@id/linearly_chooses_rubber"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:gravity="center" />
+                </RelativeLayout>
+            </RelativeLayout>
+
+            <!--  Определение диаметра большего шкива  -->
+
+            <TextView
+                android:id="@+id/textView_searching_D2"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="48dp"
+                android:background="@color/save"
+                android:gravity="center"
+                android:text="@string/searching_D2"
+                android:textColor="@android:color/white" />
+
+            <!-- n1 -->
+
+            <EditText
+                android:id="@+id/editText_n1_method_3_4"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:autofillHints="no"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="@string/n1_hint"
+                android:inputType="numberDecimal"
+                android:visibility="gone" />
+
+            <!-- n2 -->
+
+            <EditText
+                android:id="@+id/editText_n2"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:autofillHints="no"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="@string/n2_hint"
+                android:inputType="numberDecimal" />
+
+            <!--  Определение значения коэффициента скольжения ремня  -->
+
+            <RelativeLayout
+                android:id="@+id/relativeLayout_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="visible">
+
+                <!-- ksi - text -->
+
+                <TextView
+                    android:id="@+id/seekBar_ksi_text"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:gravity="center"
+                    android:text="@string/ksi" />
+
+                <!--  ksi - choose  -->
+
+                <SeekBar
+                    android:id="@+id/seekBar_ksi_choose"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_toStartOf="@id/seekBar_ksi_value"
+                    android:layout_toLeftOf="@id/seekBar_ksi_value"
+                    android:layout_toEndOf="@id/seekBar_ksi_text"
+                    android:layout_toRightOf="@id/seekBar_ksi_text"
+                    android:max="1000"
+                    android:progress="500" />
+
+                <!--  ksi - value  -->
+
+                <TextView
+                    android:id="@+id/seekBar_ksi_value"
+                    android:layout_width="80dp"
+                    android:layout_height="48dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center" />
+            </RelativeLayout>
+
+            <Switch
+                android:id="@+id/switch_typeOfTransmission_1"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginRight="20dp"
+                android:checked="false"
+                android:gravity="center_vertical"
+                android:text="@string/switch_typeOfTransmission_1_text_off" />
+
+            <!--  Определение длины ремня  -->
+
+            <TextView
+                android:id="@+id/textView_searching_a"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="48dp"
+                android:background="@color/save"
+                android:gravity="center"
+                android:text="@string/searching_a"
+                android:textColor="@android:color/white" />
+
+            <Switch
+                android:id="@+id/switch_typeOfTransmission_2"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginRight="20dp"
+                android:checked="false"
+                android:gravity="center_vertical"
+                android:text="@string/switch_typeOfTransmission_2_text_off"
+                android:visibility="visible" />
+
+            <!--  Определение межосевого расстояния  -->
+
+            <RelativeLayout
+                android:id="@+id/relativeLayout_typeOfTransmission_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="visible">
+
+                <!--  i_max - text  -->
+
+                <TextView
+                    android:id="@+id/seekBar_i_max_text"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:gravity="center"
+                    android:text="@string/i_max" />
+
+                <!--  i_max - choose  -->
+
+                <SeekBar
+                    android:id="@+id/seekBar_i_max_choose"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_toStartOf="@id/seekBar_i_value"
+                    android:layout_toLeftOf="@id/seekBar_i_value"
+                    android:layout_toEndOf="@id/seekBar_i_text"
+                    android:layout_toRightOf="@id/seekBar_i_text"
+                    android:max="49" />
+
+                <!--  i_max - value  -->
+
+                <TextView
+                    android:id="@+id/seekBar_i_max_value"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center" />
+
+                <!--  i - text  -->
+
+                <TextView
+                    android:id="@+id/seekBar_i_text"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_below="@id/seekBar_i_max_choose"
+                    android:gravity="center"
+                    android:text="@string/i" />
+
+                <!--  i - choose  -->
+
+                <SeekBar
+                    android:id="@+id/seekBar_i_choose"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_below="@id/seekBar_i_max_choose"
+                    android:layout_toStartOf="@id/seekBar_i_value"
+                    android:layout_toLeftOf="@id/seekBar_i_value"
+                    android:layout_toEndOf="@id/seekBar_i_text"
+                    android:layout_toRightOf="@id/seekBar_i_text" />
+
+                <!--  i - value  -->
+
+                <TextView
+                    android:id="@+id/seekBar_i_value"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_below="@id/seekBar_i_max_choose"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center" />
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/button_finish"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:layout_alignParentBottom="true"
+        android:onClick="onClick"
+        android:text="@string/finish" />
+</RelativeLayout>

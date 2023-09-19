@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/textView_resultName"
+        android:layout_width="128dp"
+        android:layout_height="48dp"
+        android:gravity="center"
+        android:text="@string/name"
+        android:textColor="@android:color/black" />
+
+    <EditText
+        android:id="@+id/editText_resultName"
+        android:layout_width="128dp"
+        android:layout_height="48dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="12dp"
+        android:layout_marginLeft="12dp"
+        android:layout_toEndOf="@id/textView_resultName"
+        android:layout_toRightOf="@id/textView_resultName"
+        android:autofillHints="no"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="@string/name"
+        android:inputType="textPersonName" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/button_saveAllChanges"
+        android:layout_below="@id/textView_resultName">
+
+        <LinearLayout
+            android:id="@+id/linearly_result"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </ScrollView>
+
+    <Button
+        android:id="@+id/button_saveAllChanges"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:layout_alignParentBottom="true"
+        android:text="@string/saveAllChanges" />
+
+</RelativeLayout>

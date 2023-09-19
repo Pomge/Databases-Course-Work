@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "891106488119",
+    "firebase_url": "https://cursachproject.firebaseio.com",
+    "project_id": "cursachproject",
+    "storage_bucket": "cursachproject.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:891106488119:android:14c3c27d84411477c474b2",
+        "android_client_info": {
+          "package_name": "com.example.myproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "891106488119-0qleqtc1uql8hnes9lfeo2r0gcq10vmr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCT0UfqinsJuNNuBP076PspWMaMotrllZs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "891106488119-0qleqtc1uql8hnes9lfeo2r0gcq10vmr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

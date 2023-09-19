@@ -1,0 +1,85 @@
+<resources>
+    <string name="app_name">MyProject</string>
+
+    <string name="newCalculation">Новый расчет</string>
+
+    <string name="new_calc">Новый расчет</string>
+    <string name="save">Сохранить</string>
+    <string name="name">Название расчета</string>
+    <string name="transmission">Передача</string>
+    <string name="choose">Выберите действие</string>
+    <string name="delete">Удалить</string>
+    <string name="edit">Изменить</string>
+    <string name="yes">Да</string>
+    <string name="no">Нет</string>
+    <string name="fillingError">Не все поля заполнены!</string>
+    <string name="saveAllChanges">Сохранить все изменения</string>
+
+    <string name="alertDialog_title_1">Результаты рассчета</string>
+    <string name="alertDialog_title_2">Введите название для рассчета</string>
+    <string name="alertDialog_new">Новая передача</string>
+    <string name="alertDialog_finish">Закончить расчет</string>
+
+    <string name="message_1">Выбранный метод рассчета диаметра меньшего шкива:</string>
+    <string name="message_2">Диаметр меньшего шкива =</string>
+    <string name="message_3">Диаметр большего шкива =</string>
+    <string name="message_4">Скорость ремня =</string>
+    <string name="message_5">Длина ремня =</string>
+    <string name="message_6">Частота пробега ремня =</string>
+    <string name="message_7">Межосевое расстояние =</string>
+    <string name="message_8">Угол обхвата на меньшем шкиве =</string>
+
+
+    <string name="searching_D1">Определение диаметра меньшего шкива, D₁</string>
+    <string name="searching_D2">Определение диаметра большего шкива, D₂</string>
+    <string name="searching_L">Определение длины ремня, L</string>
+    <string name="searching_a">Определение межосевого расстояния, a</string>
+    <string name="finish">Закончить расчет</string>
+
+    <string name="k1">k₁</string>
+    <string name="ro">ρ</string>
+    <string name="D1">D₁</string>
+    <string name="ksi">ξ</string>
+    <string name="i_max">iₘₐₓ</string>
+    <string name="i">i</string>
+    <string name="a">a\'</string>
+    <string name="mm">мм</string>
+    <string name="m_s">м/c</string>
+    <string name="hz">Гц</string>
+    <string name="grad">°</string>
+
+    <string name="N_hint">Мощность, N</string>
+    <string name="n1_hint">Частота вращения меньшего шкива, n₁</string>
+    <string name="D1_hint">Диаметр меньшего шкива, D₁</string>
+    <string name="n2_hint">Частота вращения большего шкива, n₂</string>
+
+    <string name="g_text">Число\nпрокладок</string>
+    <string name="i_text">Частота пробега\nремня</string>
+
+    <string name="switch_typeOfTransmission_1_text_off">Для понижающих передач</string>
+    <string name="switch_typeOfTransmission_1_text_on">Для повышающих передач</string>
+
+    <string name="switch_typeOfTransmission_2_text_off">Для быстроходных передач</string>
+    <string name="switch_typeOfTransmission_2_text_on">Для среднескоростных передач</string>
+
+    <string-array name="methods">
+        <item>По формуле М. А. Саверина</item>
+        <item>Исходя из ориентировочной скорости ремня</item>
+        <item>На основании конструктивных соображений</item>
+        <item>В зависимости от материала ремня</item>
+    </string-array>
+
+    <string name="material_1">Прорезиненные</string>
+    <string name="material_2">Синтетические</string>
+    <string name="type_1">Тип I</string>
+    <string name="type_2">Тип II</string>
+    <string name="model_1">Б-800, Б-820</string>
+    <string name="model_2">БКНЛ–65, БКНЛ–65–2</string>
+    <string name="layers_1">С прослойками</string>
+    <string name="layers_2">Без прослоек</string>
+
+
+    <string name="trans_N">Мощность, N =</string>
+    <string name="trans_N_dim">кВт</string>
+    <string name="trans_n1">Частота вращения меньшего шкива, n₁ =</string>
+</resources>
